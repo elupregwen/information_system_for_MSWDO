@@ -327,10 +327,6 @@
         <span class="text-green-600 font-semibold">Geographic Analysis</span>
       </div>
       <div class="flex items-center gap-2">
-        <button onclick="window.location.reload()"
-          class="text-[12px] font-medium text-green-700 border border-green-200 bg-green-50 rounded-lg px-3 py-1.5 hover:bg-green-100">
-          <i class="fas fa-sync-alt mr-1"></i> Refresh
-        </button>
       </div>
     </header>
 
@@ -651,26 +647,6 @@
         sortKey = key;
         renderSummary();
       });
-    });
-
-    // ---- REFRESH ALL ----
-    function refreshAll() {
-      drawLayer();
-      map.removeControl(legend);
-      legend.addTo(map);
-      renderTop5();
-      renderSummary();
-      document.getElementById('drilldown').innerHTML = '<p class="empty">Click a barangay on the map to see its beneficiary breakdown.</p>';
-    }
-    refreshAll();
-
-    document.getElementById('program').addEventListener('change', e => {
-      currentProgram = e.target.value;
-      refreshAll();
-    });
-    document.getElementById('metric').addEventListener('change', e => {
-      currentMetric = e.target.value;
-      refreshAll();
     });
 
     // ---- CSV EXPORT ----
